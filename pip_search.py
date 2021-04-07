@@ -6,6 +6,13 @@ import json
 import sys
 
 
+def get_package_monthy_downloads(package_name):
+    url = 'https://pypistats.org/api/packages/{}/recent'.format(package_name)
+    response = requests.get(url)
+    package_dict = response.json()
+    
+    print (package_dict['data']['last_month'])
+
 
 def get_packagenames(package_name, substring_match = True):
     """
@@ -37,15 +44,17 @@ def get_packagenames(package_name, substring_match = True):
 def get_package_description(package_name):
     url = 'https://pypi.org/pypi/{}/json'.format(package_name) 
     response = requests.get(url)
-    package_dict = json.loads(response.text)
-    
+    package_dict = response.json()
     print(package_dict['info']['description'])
-    
+
 
 if __name__ == '__main__':
+    
+    help_message = ('Please enter ./pip_search -p (-e) package_name for package list, -d for package_description'
+                    'or -n for number of monthly package downloads')
 
-    help_message = 'Please enter -p (-e) package_name for package list or -d for package_description.' 
     try:
+        
         if sys.argv[1] == '-p' and len(sys.argv) == 3:
            get_packagenames(sys.argv[2])
         
@@ -54,6 +63,12 @@ if __name__ == '__main__':
     
         elif sys.argv[1] == '-d' and len(sys.argv) == 3:
             get_package_description(sys.argv[2])
+
+        elif sys.argv[1] == '-n' and len(sys.argv) == 3:
+            get_package_monthy_downloads(sys.argv[2])
+        
+        else:
+            print(help_message)
 
     except:
         print(help_message)

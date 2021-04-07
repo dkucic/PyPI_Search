@@ -1,4 +1,5 @@
 *
+test.py
 !*.py
 !*.json
 !*.sh
