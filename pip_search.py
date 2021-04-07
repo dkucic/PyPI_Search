@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import requests
 import re
 import json
@@ -43,18 +45,19 @@ def get_package_description(package_name):
 if __name__ == '__main__':
 
     help_message = 'Please enter -p (-e) package_name for package list or -d for package_description.' 
-    if sys.argv[1] == '-p' and len(sys.argv) == 3:
-       get_packagenames(sys.argv[2])
+    try:
+        if sys.argv[1] == '-p' and len(sys.argv) == 3:
+           get_packagenames(sys.argv[2])
+        
+        elif sys.argv[1] == '-p' and sys.argv[2] == '-e' and len(sys.argv) == 4: 
+           get_packagenames(sys.argv[3], substring_match=False)
     
-    elif sys.argv[1] == '-p' and sys.argv[2] == '-e' and len(sys.argv) == 4: 
-       get_packagenames(sys.argv[3], substring_match=False)
+        elif sys.argv[1] == '-d' and len(sys.argv) == 3:
+            get_package_description(sys.argv[2])
 
-    elif sys.argv[1] == '-d' and len(sys.argv) == 3:
-        get_package_description(sys.argv[2])
-
-    else:
-        print(len(sys.argv))
-        print(sys.argv)
+    except:
+        print(help_message)
+        
     
     
     
