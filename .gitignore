@@ -1,6 +1,4 @@
 *
-!/pypi_searcher/*.py
-!*.py
-!*.json
-!*.sh
-!.gitignore
+!pypi-searcher/
+pypi-searcher/*
+!pypi-searcher/*.py
