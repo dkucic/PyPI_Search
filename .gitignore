@@ -1,5 +1,5 @@
 *
-test.py
+!/pypi_searcher/*.py
 !*.py
 !*.json
 !*.sh
