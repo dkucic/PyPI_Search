@@ -4,6 +4,6 @@
 !*.md
 !LICENSE
 !INSTRUCTIONS
-!pypi-searcher/
-pypi-searcher/*
-!pypi-searcher/*.py
+!pypi_searcher/
+pypi_searcher/*
+!pypi_searcher/*.py
