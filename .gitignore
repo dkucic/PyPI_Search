@@ -1,4 +1,9 @@
 *
+!*.py
+!*.cfg
+!*.md
+!LICENSE
+!INSTRUCTIONS
 !pypi-searcher/
 pypi-searcher/*
 !pypi-searcher/*.py
