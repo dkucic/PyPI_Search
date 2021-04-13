@@ -70,9 +70,6 @@ def pypi_search(*argv):
         if argv[1] == '-p' and len(argv) == 3:
            get_packagenames(argv[2])
 
-        elif argv[1] == '-p' and len(argv) == 3:
-           get_packagenames(argv[3])
-
         elif argv[1] == '-d' and len(argv) == 3:
             get_package_description(argv[2])
 
@@ -84,7 +81,6 @@ def pypi_search(*argv):
 
     except:
         print(help_message)
-
 
 
 if __name__ == '__main__':
