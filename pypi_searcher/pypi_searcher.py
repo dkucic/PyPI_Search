@@ -65,10 +65,8 @@ def pypi_search():
     try:
         if sys.argv[1] == '-p' and len(sys.argv) == 3:
            get_packagenames(sys.argv[2])
-
         elif sys.argv[1] == '-d' and len(sys.argv) == 3:
             get_package_description(sys.argv[2])
-
         elif sys.argv[1] == '-n' and len(sys.argv) == 3:
             get_package_monthy_downloads(sys.argv[2])
         else:
