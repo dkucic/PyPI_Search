@@ -58,27 +58,21 @@ def get_package_description(package_name):
     return package_dict['info']['description']
 
 
-def pypi_search(*argv):
+def pypi_search():
     help_message = ('Please enter ./pip_search -p package_name for package list, -d for package_description'
                     'or -n for number of monthly package downloads')
 
-    if __name__ == '__main__':
-        argv = sys.argv
-
     try:
+        if sys.argv[1] == '-p' and len(sys.argv) == 3:
+           get_packagenames(sys.argv[2])
 
-        if argv[1] == '-p' and len(argv) == 3:
-           get_packagenames(argv[2])
+        elif sys.argv[1] == '-d' and len(sys.argv) == 3:
+            get_package_description(sys.argv[2])
 
-        elif argv[1] == '-d' and len(argv) == 3:
-            get_package_description(argv[2])
-
-        elif argv[1] == '-n' and len(argv) == 3:
-            get_package_monthy_downloads(argv[2])
-
+        elif sys.argv[1] == '-n' and len(sys.argv) == 3:
+            get_package_monthy_downloads(sys.argv[2])
         else:
             print(help_message)
-
     except:
         print(help_message)
 
